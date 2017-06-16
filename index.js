@@ -8,7 +8,6 @@ const gatherInfo = require('./lib/gatherInformation');
 const scaleUp = require('./lib/scaleUp');
 const scaleDown = require('./lib/scaleDown');
 
-AWS.config.region = 'eu-west-1';
 const as = new AWS.AutoScaling();
 
 let ASGroupName = process.env.AS_GROUP_NAME;
@@ -84,4 +83,4 @@ const run = () => {
 };
 
 run();
-setInterval(run, 20000);
+setInterval(run, process.env.INTERVAL);
